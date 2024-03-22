@@ -1,9 +1,10 @@
-import requests
-import Article, BD
+# import requests
+# import Article, BD
 
 
 def main():
-    pass
+    fname = input(" who the fuck are you ? ")
+    print(fname)
 
 
 if __name__ == "__main__":
