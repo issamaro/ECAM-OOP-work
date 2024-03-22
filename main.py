@@ -1,14 +1,8 @@
 import requests
+import Article, BD
+
 
 def main():
-    pass
-
-
-
-
-    
-
-class BD:
     pass
 
 
