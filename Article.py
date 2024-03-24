@@ -1,16 +1,16 @@
 from typing import Dict, List
 
-class Article:
 
+class Article:
     articles: Dict[str, List[object]] = {
         "bd": [],
         "toys": []
     }
 
-    def __init__(self, code_barre:str, prix:int, stock:int = 1 ) -> None:
-        self._prix :int = prix
-        self._stock:int = stock
-        self._code_barre:str = code_barre
+    def __init__(self, code_barre: str, prix: int, stock: int = 1) -> None:
+        self._prix: int = prix
+        self._stock: int = stock
+        self._code_barre: str = code_barre
 
     @property
     def prix(self) -> int:
@@ -34,5 +34,12 @@ class Article:
 
     @code_barre.setter
     def code_barre(self, value: str) -> None:
-        self._code_barre = value    
-            
+        self._code_barre = value
+
+    def __str__(self) -> str:
+        str_liste = ""
+        for categorie, articles in Article.articles.items():
+            str_liste += f"{categorie.capitalize()}:\n"
+            for article in articles:
+                str_liste += str(article) + "\n"
+        return str_liste
