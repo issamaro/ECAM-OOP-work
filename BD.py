@@ -3,7 +3,7 @@ from article import Article
 
 class BD(Article):
 
-    def __init__(self, title: str, auteur_name: str, isbn: str, first_publish_year: str, language: str, code_barre: str,
+    def __init__(self, title: str, auteur_name: str, isbn: str, first_publish_year: int, language: str, code_barre: str,
                  prix: int) -> None:
         super().__init__(code_barre, prix)
         self._title: str = title
