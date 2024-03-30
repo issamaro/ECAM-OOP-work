@@ -1,10 +1,13 @@
 # import requests
 from bd import BD
 from article import Article
-
+import databasestorage
 
 class Main:
+    FILENAME = "bd.json"
+
     def main():
+
         def afficher_liste_bd(list_article_bd):
             str_liste = ""
             for i, article in enumerate(list_article_bd, 1):
@@ -47,7 +50,8 @@ class Main:
             print("4. Rechercher une BD par la valeur que vous voulez")
             print("5. Modifier une BD au choix")
             print("6. Supprimer une BD au choix")
-            print("7. Quitter")
+            print("7. Sauvegarder vos données")
+            print("8. Quitter")
 
         def ajouter_article():
             # Demander à l'utilisateur les détails de la BD
@@ -191,25 +195,30 @@ class Main:
                 elif choix == "6":
                     supprimer_article()
                 elif choix == "7":
+                    databasestorage.sauvegarder_article()
+                elif choix == "8":
+                    databasestorage.sauvegarder_article()
                     print("Au revoir!")
                     break
                 else:
                     print("Choix invalide. Veuillez choisir une option valide.")
 
         ########## pour le test ########## 
-        liste_article = Article.articles
+        #liste_article = Article.articles
 
         # Create a BD object
-        book = BD("The Catcher in the Rye", "J.D. Salinger", "9782253105677", 1951, "English", "PG123456789", 20)
-        book1 = BD("AAAAAAAA", "a", "1234567891234", 6666, "Chiinois", "CD123456789", 1000)
+        #book = BD("The Catcher in the Rye", "J.D. Salinger", "9782253105677", 1951, "English", "PG123456789", 20)
+        #book1 = BD("AAAAAAAA", "a", "1234567891234", 6666, "Chiinois", "CD123456789", 1000)
 
         # Convert the book object to a string
         # print(book)
-        liste_article["bd"].append(book)
-        liste_article["bd"].append(book1)
+        #liste_article["bd"].append(book)
+        #liste_article["bd"].append(book1)
         # print(afficher_liste_bd())
         #####
 
+        #charger les donnees dans le fichier bbd.json
+        databasestorage.charger_articles()
         executer()
 
     if __name__ == "__main__":
