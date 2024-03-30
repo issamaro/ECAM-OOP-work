@@ -11,22 +11,67 @@ class Main:
                 str_liste += f"{'-' * 20} Article {i} {'-' * 20}\n"
                 str_liste += str(article) + "\n\n"
             print(str_liste)
+            
+        def choisir_variable_recherche():
+            print("1. Titre")
+            print("2. Auteur")
+            print("3. ISBN")
+            print("4. Année de publication")
+            print("5. Langue")
+            print("6. Code barre")
+            print("7. Prix")
+            choix_variable = input("Votre choix: ")
+
+            if choix_variable == "1":
+                return "title"
+            elif choix_variable == "2":
+                return "auteur_name"
+            elif choix_variable == "3":
+                return "isbn"
+            elif choix_variable == "4":
+                return "first_publish_year"
+            elif choix_variable == "5":
+                return "language"
+            elif choix_variable == "6":
+                return "code_barre"
+            elif choix_variable == "7":
+                return "prix"
+            else:
+                print("Choix invalide.")
+                return None
 
         def afficher_menu():
             print("1. Ajouter un article")
             print("2. Afficher la liste des articles")
-            print("4. Rechercher une BD par titre")
-            print("5. Quitter")
+            print("3. Choisir un article")
+            print("4. Rechercher une BD par la valeur que vous voulez")
+            print("5. Moodifier une BD au choix")
+            print("6. Quitter")
 
         def ajouter_article():
             # Demander à l'utilisateur les détails de la BD
             title = input("Entrez le titre de la BD: ")
             auteur_name = input("Entrez le nom de l'auteur: ")
             isbn = input("Entrez le numéro ISBN de la BD: ")
-            first_publish_year = input("Entrez l'année de première publication de la BD: ")
+            
+            # Vérifier si l'année de publication est un entier valide
+            while True:
+                first_publish_year = input("Entrez l'année de première publication de la BD: ")
+                if not first_publish_year.isdigit():
+                    print("\u26A0️ L'année de publication doit être un nombre entier. \u26A0️")
+                else:
+                    break  # Sortir de la boucle si l'année de publication est un entier valide
+            
             language = input("Entrez la langue de la BD: ")
             code_barre = input("Entrez le code-barres de la BD: ")
-            prix = input("Entrez le prix de la BD: ")
+            
+            # Vérifier si le prix est un nombre valide
+            while True:
+                prix = input("Entrez le prix de la BD: ")
+                if not prix.isdigit():
+                    print("\u26A0️ Le prix doit être un nombre entier. \u26A0️")
+                else:
+                    break  # Sortir de la boucle si le prix est un nombre valide
 
             # Créer la BD
             nouvel_article = BD(title, auteur_name, isbn, first_publish_year, language, code_barre, prix)
@@ -45,44 +90,20 @@ class Main:
                 choix = int(choix)
                 if choix < 1 or choix > len(Article.articles["bd"]):
                     print("Choix invalide. Veuillez choisir un numéro valide.")
-                    return
+                    return None
             except ValueError:
                 print("Choix invalide. Veuillez saisir un nombre.")
-                return
+                return None
 
-            # Afficher l'article choisi
-            article_choisi = Article.articles["bd"][choix - 1]
-            print("Article choisi :")
-            print(article_choisi)
+            # Renvoyer l'article choisi
+            print(Article.articles["bd"][choix - 1])
+            return Article.articles["bd"][choix - 1]
 
         def rechercher_bd_par_titre():
             print("Choisissez la variable par laquelle vous souhaitez rechercher:")
-            print("1. Titre")
-            print("2. Auteur")
-            print("3. ISBN")
-            print("4. Année de publication")
-            print("5. Langue")
-            print("6. Code barre")
-            print("7. Prix")
-            choix_variable = input("Votre choix: ")
-
-            if choix_variable == "1":
-                variable = "title"
-            elif choix_variable == "2":
-                variable = "auteur_name"
-            elif choix_variable == "3":
-                variable = "isbn"
-            elif choix_variable == "4":
-                variable = "first_publish_year"
-            elif choix_variable == "5":
-                variable = "language"
-            elif choix_variable == "6":
-                variable = "code_barre"
-            elif choix_variable == "7":
-                variable = "prix"
-            else:
-                print("Choix invalide.")
-                return
+            variable = choisir_variable_recherche()
+            if variable is None:
+                return  # Sortir de la fonction si le choix est invalide
 
             valeur_recherche = input(f"Entrez la valeur pour la recherche par {variable}: ")
 
@@ -109,6 +130,34 @@ class Main:
             else:
                 print(f"Aucune BD trouvée avec comme {variable} : {valeur_recherche}")
 
+        def modifier_article():
+            article = choisir_article()  # Permet à l'utilisateur de choisir l'article à modifier
+            # Si aucun article n'est choisi, sortir de la fonction
+            if article is None:
+                return
+
+            print("Choisissez la variable par laquelle vous souhaitez faire une modification:")
+
+            choix_variable = choisir_variable_recherche()  # Permet à l'utilisateur de choisir la variable à modifier
+            if choix_variable is None:
+                return  # Sortir de la fonction si le choix est invalide
+
+            while True:
+                valeur_modification = input(f"Entrez la valeur pour la modification par {choix_variable}: ")
+
+                if choix_variable in ["first_publish_year", "prix"]:
+                    if not valeur_modification.isdigit():
+                        print("\u26A0️ L'année de publication et le prix doivent être des nombres entiers. \u26A0️")
+                        continue  # Recommencer la boucle pour demander à nouveau la saisie
+                break  # Sortir de la boucle si l'année de publication ou le prix est un nombre entier valide
+
+            
+            # Modifier l'article sélectionné en fonction de la variable choisie
+            setattr(article, choix_variable, valeur_modification)
+            print("Modification effectuée avec succès.")
+
+
+
         def executer():
             while True:
                 afficher_menu()
@@ -122,7 +171,10 @@ class Main:
                 elif choix == "4":
                     rechercher_bd_par_titre()
                 elif choix == "5":
+                    modifier_article()
+                elif choix == "6":
                     print("Au revoir!")
+                
                     break
                 else:
                     print("Choix invalide. Veuillez choisir une option valide.")
