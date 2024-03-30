@@ -11,7 +11,7 @@ class Main:
                 str_liste += f"{'-' * 20} Article {i} {'-' * 20}\n"
                 str_liste += str(article) + "\n\n"
             print(str_liste)
-            
+
         def choisir_variable_recherche():
             print("1. Titre")
             print("2. Auteur")
@@ -53,7 +53,7 @@ class Main:
             title = input("Entrez le titre de la BD: ")
             auteur_name = input("Entrez le nom de l'auteur: ")
             isbn = input("Entrez le numéro ISBN de la BD: ")
-            
+
             # Vérifier si l'année de publication est un entier valide
             while True:
                 first_publish_year = input("Entrez l'année de première publication de la BD: ")
@@ -61,10 +61,10 @@ class Main:
                     print("\u26A0️ L'année de publication doit être un nombre entier. \u26A0️")
                 else:
                     break  # Sortir de la boucle si l'année de publication est un entier valide
-            
+
             language = input("Entrez la langue de la BD: ")
             code_barre = input("Entrez le code-barres de la BD: ")
-            
+
             # Vérifier si le prix est un nombre valide
             while True:
                 prix = input("Entrez le prix de la BD: ")
@@ -151,12 +151,9 @@ class Main:
                         continue  # Recommencer la boucle pour demander à nouveau la saisie
                 break  # Sortir de la boucle si l'année de publication ou le prix est un nombre entier valide
 
-            
             # Modifier l'article sélectionné en fonction de la variable choisie
             setattr(article, choix_variable, valeur_modification)
             print("Modification effectuée avec succès.")
-
-
 
         def executer():
             while True:
@@ -174,7 +171,7 @@ class Main:
                     modifier_article()
                 elif choix == "6":
                     print("Au revoir!")
-                
+
                     break
                 else:
                     print("Choix invalide. Veuillez choisir une option valide.")
