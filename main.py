@@ -45,8 +45,9 @@ class Main:
             print("2. Afficher la liste des articles")
             print("3. Choisir un article")
             print("4. Rechercher une BD par la valeur que vous voulez")
-            print("5. Moodifier une BD au choix")
-            print("6. Quitter")
+            print("5. Modifier une BD au choix")
+            print("6. Supprimer une BD au choix")
+            print("7. Quitter")
 
         def ajouter_article():
             # Demander à l'utilisateur les détails de la BD
@@ -155,6 +156,25 @@ class Main:
             setattr(article, choix_variable, valeur_modification)
             print("Modification effectuée avec succès.")
 
+        def supprimer_article():
+            article = choisir_article()  # Permet à l'utilisateur de choisir l'article à supprimer
+            # Si aucun article n'est choisi, sortir de la fonction
+            if article is None:
+                return
+
+            # Demander à l'utilisateur de confirmer la suppression
+            confirmation = input(f"Êtes-vous sûr de vouloir supprimer l'article {article.title}? (O/N) ").upper()
+
+            if confirmation == "O":
+                # Supprimer l'article de la liste
+                Article.articles["bd"].remove(article)
+                print(f"L'article {article.title} a été supprimé avec succès.")
+            elif confirmation == "N":
+                print("Suppression annulée.")
+            else:
+                print("Entrée invalide. Suppression annulée.")
+
+
         def executer():
             while True:
                 afficher_menu()
@@ -170,13 +190,14 @@ class Main:
                 elif choix == "5":
                     modifier_article()
                 elif choix == "6":
+                    supprimer_article()
+                elif choix == "7":
                     print("Au revoir!")
-
                     break
                 else:
                     print("Choix invalide. Veuillez choisir une option valide.")
 
-        ###### pour le test
+        ########## pour le test ########## 
         liste_article = Article.articles
 
         # Create a BD object
