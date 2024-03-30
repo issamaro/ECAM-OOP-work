@@ -3,6 +3,7 @@ from main import Main
 from article import Article
 from bd import BD
 
+
 def sauvegarder_article():
     data = {"bd": []}
     for bd in Article.articles["bd"]:
@@ -17,14 +18,15 @@ def sauvegarder_article():
             "stock": bd.stock()
         }
         data["bd"].append(bd_data)
-        
+
     # Nettoyer le fichier existant
     with open(Main.FILENAME, "w") as file:
         file.truncate(0)  # Truncate efface le contenu du fichier
-        
+
     # Écrire les nouvelles données dans le fichier    
     with open(Main.FILENAME, "w") as file:
         json.dump(data, file, indent=4)
+
 
 def charger_articles():
     with open(Main.FILENAME, "r") as file:
@@ -34,8 +36,7 @@ def charger_articles():
         if data:
             # Créer des objets BD à partir des données et les ajouter à la liste
             for bd_data in data.get("bd", []):
-                nouvelle_bd = BD(bd_data["title"], bd_data["auteur_name"], bd_data["isbn"], bd_data["first_publish_year"], bd_data["language"], bd_data["code_barre"], bd_data["prix"], bd_data["stock"])
+                nouvelle_bd = BD(bd_data["title"], bd_data["auteur_name"], bd_data["isbn"],
+                                 bd_data["first_publish_year"], bd_data["language"], bd_data["code_barre"],
+                                 bd_data["prix"], bd_data["stock"])
                 Article.articles["bd"].append(nouvelle_bd)
-
-            
-     

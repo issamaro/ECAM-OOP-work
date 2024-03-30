@@ -3,6 +3,7 @@ from bd import BD
 from article import Article
 import databasestorage
 
+
 class Main:
     FILENAME = "bd.json"
 
@@ -204,20 +205,20 @@ class Main:
                     print("Choix invalide. Veuillez choisir une option valide.")
 
         ########## pour le test ########## 
-        #liste_article = Article.articles
+        # liste_article = Article.articles
 
         # Create a BD object
-        #book = BD("The Catcher in the Rye", "J.D. Salinger", "9782253105677", 1951, "English", "PG123456789", 20)
-        #book1 = BD("AAAAAAAA", "a", "1234567891234", 6666, "Chiinois", "CD123456789", 1000)
+        # book = BD("The Catcher in the Rye", "J.D. Salinger", "9782253105677", 1951, "English", "PG123456789", 20)
+        # book1 = BD("AAAAAAAA", "a", "1234567891234", 6666, "Chiinois", "CD123456789", 1000)
 
         # Convert the book object to a string
         # print(book)
-        #liste_article["bd"].append(book)
-        #liste_article["bd"].append(book1)
+        # liste_article["bd"].append(book)
+        # liste_article["bd"].append(book1)
         # print(afficher_liste_bd())
         #####
 
-        #charger les donnees dans le fichier bbd.json
+        # charger les donnees dans le fichier bbd.json
         databasestorage.charger_articles()
         executer()
 
