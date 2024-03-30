@@ -34,7 +34,7 @@ def charger_articles():
         if data:
             # Créer des objets BD à partir des données et les ajouter à la liste
             for bd_data in data.get("bd", []):
-                nouvelle_bd = BD(bd_data["title"], bd_data["auteur_name"], bd_data["isbn"], bd_data["first_publish_year"], bd_data["language"], bd_data["code_barre"], bd_data["prix"])
+                nouvelle_bd = BD(bd_data["title"], bd_data["auteur_name"], bd_data["isbn"], bd_data["first_publish_year"], bd_data["language"], bd_data["code_barre"], bd_data["prix"], bd_data["stock"])
                 Article.articles["bd"].append(nouvelle_bd)
 
             

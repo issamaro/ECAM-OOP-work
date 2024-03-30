@@ -4,8 +4,8 @@ from article import Article
 class BD(Article):
 
     def __init__(self, title: str, auteur_name: str, isbn: str, first_publish_year: int, language: str, code_barre: str,
-                 prix: int) -> None:
-        super().__init__(code_barre, prix)
+                 prix: int, stock: int = 1) -> None:
+        super().__init__(code_barre, prix, stock)  
         self._title: str = title
         self._auteur_name: str = auteur_name
         self._isbn: str = isbn
