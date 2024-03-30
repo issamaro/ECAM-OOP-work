@@ -174,7 +174,6 @@ class Main:
             else:
                 print("Entrée invalide. Suppression annulée.")
 
-
         def executer():
             while True:
                 afficher_menu()
