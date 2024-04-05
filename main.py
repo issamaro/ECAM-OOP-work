@@ -103,6 +103,7 @@ class Main:
 
             # Renvoyer l'article choisi
             print(Article.articles["bd"][choix - 1])
+            print("\n")
             return Article.articles["bd"][choix - 1]
 
         def rechercher_bd_par_titre():
