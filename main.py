@@ -83,6 +83,7 @@ class Main:
             nouvel_article = BD(title, auteur_name, isbn, first_publish_year, language, code_barre, prix)
             Article.articles["bd"].append(nouvel_article)
             print("BD ajouté avec succès.")
+            databasestorage.sauvegarder_article()
 
         def choisir_article():
             # Afficher la liste des articles

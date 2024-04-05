@@ -39,6 +39,16 @@
             "code_barre": "test 4",
             "prix": "20",
             "stock": 1
+        },
+        {
+            "title": "a",
+            "auteur_name": "a",
+            "isbn": "a",
+            "first_publish_year": "667",
+            "language": "a",
+            "code_barre": "a",
+            "prix": "1",
+            "stock": 1
         }
     ]
 }
