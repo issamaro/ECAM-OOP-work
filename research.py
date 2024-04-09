@@ -1,12 +1,12 @@
 import requests
 from abc import ABC, abstractmethod
-from typing import Dict, List
+from typing import Dict, List, Union
 
 class APIResearchInterface(ABC):
 
 
     @abstractmethod
-    def get(self, *args, **kwargs) -> Dict | List:
+    def get(self, *args, **kwargs) -> Union[Dict, List]:
         pass
 
 
@@ -17,7 +17,7 @@ class APIResearch(APIResearchInterface):
         self._endpoint = endpoint
 
 
-    def get(self, *args, **kwargs) -> Dict | List:
+    def get(self, *args, **kwargs) -> Union[Dict, List]:
         if not self.endpoint:raise TypeError("No endpoint was provided. Set endpoint property before making any request")
         try:
             response = requests.get(self.endpoint, *args, **kwargs)
@@ -43,9 +43,9 @@ class APIResearch(APIResearchInterface):
 class OpenLibraryAPIResearch:
     
     
-    def __init__(self, *args, **kwargs) -> None:
-        # if not isinstance(api, APIResearch): raise TypeError(f"api argument must be of type :class: APIResearch, {api} of type {type(api)} was provided.")
-        self._api = APIResearch(*args, **kwargs)
+    def __init__(self, api: APIResearch) -> None:
+        if not isinstance(api, APIResearch): raise TypeError(f"api argument must be of type :class: APIResearch, {api} of type {type(api)} was provided.")
+        self._api = api
     
     
     def get(self, query_type: str, value: str) -> None:
@@ -64,13 +64,9 @@ class OpenLibraryAPIResearch:
 
 
 if __name__ == "__main__":
-    myapi = APIResearch()
-    myapi.endpoint = "https://jsonplaceholder.typicode.com/todos"
+    myapi = APIResearch("https://openlibrary.org/search.json")
     response = myapi.get()
-    print("\n\n\t\t\ttest api\t", response[0], end="\n\n")
     
-    
-    ol = OpenLibraryAPIResearch("https://openlibrary.org/search.json")
+    ol = OpenLibraryAPIResearch(myapi)
     print(ol.get("title", "lord of the rings"))
-    
     
