@@ -3,6 +3,7 @@ from bd import BD
 from article import Article
 import databasestorage
 
+OPENLIBRARY_ENDPOINT = "https://openlibrary.org/search.json"
 
 class Main:
     FILENAME = "bd.json"
@@ -24,25 +25,28 @@ class Main:
             print("5. Langue")
             print("6. Code barre")
             print("7. Prix")
-            choix_variable = input("Votre choix: ")
 
-            if choix_variable == "1":
-                return "title"
-            elif choix_variable == "2":
-                return "auteur_name"
-            elif choix_variable == "3":
-                return "isbn"
-            elif choix_variable == "4":
-                return "first_publish_year"
-            elif choix_variable == "5":
-                return "language"
-            elif choix_variable == "6":
-                return "code_barre"
-            elif choix_variable == "7":
-                return "prix"
-            else:
-                print("Choix invalide.")
-                return None
+
+            choix_variable = input("Votre choix: ")
+            match choix_variable:
+                case "1":
+                    return "title"
+                case "2":
+                    return "auteur_name"
+                case "3":
+                    return "isbn"
+                case "4":
+                    return "first_publish_year"
+                case "5":
+                    return "language"
+                case "6":
+                    return "code_barre"
+                case "7":
+                    return "prix"
+                case _:
+                    print("Choix invalide.")
+                    return None
+
 
         def afficher_menu():
             print("1. Ajouter un article")
@@ -220,7 +224,7 @@ class Main:
         # print(afficher_liste_bd())
         #####
 
-        # charger les donnees dans le fichier bbd.json
+        # charger les donnees dans le fichier bd.json
         databasestorage.charger_articles()
         executer()
 
