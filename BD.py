@@ -6,60 +6,43 @@ class BD(Article):
     def __init__(self, title: str, auteur_name: str, isbn: str, first_publish_year: int, language: str, code_barre: str,
                  prix: int, stock: int = 1) -> None:
         super().__init__(code_barre, prix, stock)  
-        self._title: str = title
-        self._auteur_name: str = auteur_name
-        self._isbn: str = isbn
-        self._first_publish_year: str = first_publish_year
-        self._language: str = language
+        self.__title: str = title
+        self.__auteur_name: str = auteur_name
+        self.__isbn: str = isbn
+        self.__first_publish_year: str = first_publish_year
+        self.__language: str = language
 
     @property
-    def title(self):
-        return self._title
+    def getTitle(self):
+        return self.__title
 
-    @title.setter
-    def title(self, value):
-        self._title = value
 
     @property
-    def auteur_name(self):
-        return self._auteur_name
+    def getAuteur_name(self):
+        return self.__auteur_name
 
-    @auteur_name.setter
-    def auteur_name(self, value):
-        self._auteur_name = value
 
     @property
     def getIsbn(self):
-        return self._isbn
+        return self.__isbn
 
-    @getIsbn.setter
-    def isbn(self, value):
-        self._isbn = value
 
     @property
-    def first_publish_year(self):
-        return self._first_publish_year
-
-    @first_publish_year.setter
-    def first_publish_year(self, value):
-        self._first_publish_year = value
+    def getFirst_publish_year(self):
+        return self.__first_publish_year
 
     @property
-    def language(self):
-        return self._language
-
-    @language.setter
-    def language(self, value):
-        self._language = value
+    def getLanguage(self):
+        return self.__language
 
     def prix(self):
-        return super().prix  # Appel du getter de prix de la classe parente
+        return super().getPrix  # Appel du getter de prix de la classe parente
 
     def stock(self):
-        return super().stock  # Appel du getter de stock de la classe parente
+        return super().getStock  # Appel du getter de stock de la classe parente
 
     def code_barre(self):
-        return super().code_barre  # Appel du getter de code_barre de la classe parente
+        return super().getCode_barre  # Appel du getter de code_barre de la classe parente
 
     def __str__(self) -> str:
-        return f"Title: {self._title}\nAuteur: {self._auteur_name}\nISBN: {self._isbn}\nFirst Publish Year: {self._first_publish_year}\nLanguage: {self._language}\nCode Barre: {self._code_barre}\nPrix: {self._prix} €\nStock: {self._stock}"
+        return f"Title: {self.getTitle}\nAuteur: {self.getAuteur_name}\nISBN: {self.getIsbn}\nFirst Publish Year: {self.getFirst_publish_year}\nLanguage: {self.getLanguage}\nCode Barre: {self.code_barre()}\nPrix: {self.prix()} €\nStock: {self.stock()}"

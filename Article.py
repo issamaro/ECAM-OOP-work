@@ -8,33 +8,23 @@ class Article:
     }
 
     def __init__(self, code_barre: str, prix: int, stock: int = 1) -> None:
-        self._prix: int = prix
-        self._stock: int = stock
-        self._code_barre: str = code_barre
+        self.__prix: int = prix
+        self.__stock: int = stock
+        self.__code_barre: str = code_barre
 
     @property
-    def prix(self) -> int:
-        return self._prix
+    def getPrix(self) -> int:
+        return self.__prix
 
-    @prix.setter
-    def prix(self, value: int) -> None:
-        self._prix = value
 
     @property
-    def stock(self) -> int:
-        return self._stock
+    def getStock(self) -> int:
+        return self.__stock
 
-    @stock.setter
-    def stock(self, value: int) -> None:
-        self._stock = value
 
     @property
-    def code_barre(self) -> str:
-        return self._code_barre
-
-    @code_barre.setter
-    def code_barre(self, value: str) -> None:
-        self._code_barre = value
+    def getCode_barre(self) -> str:
+        return self.__code_barre
 
     def __str__(self) -> str:
         str_liste = ""

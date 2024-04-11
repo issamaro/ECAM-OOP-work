@@ -10,9 +10,9 @@ class Main:
 
     def main():
 
-        def afficher_liste_bd(list_article_bd):
+        def afficher_liste_bd(liste_article_bd):
             str_liste = ""
-            for i, article in enumerate(list_article_bd, 1):
+            for i, article in enumerate(liste_article_bd, 1):
                 str_liste += f"{'-' * 20} Article {i} {'-' * 20}\n"
                 str_liste += str(article) + "\n\n"
             print(str_liste)
@@ -86,7 +86,7 @@ class Main:
             # Créer la BD
             nouvel_article = BD(title, auteur_name, isbn, first_publish_year, language, code_barre, prix)
             Article.articles["bd"].append(nouvel_article)
-            print("BD ajouté avec succès.")
+            print("\n \U0001F44D BD ajouté avec succès. \U0001F44D \n")
             databasestorage.sauvegarder_article()
 
         def choisir_article():
@@ -205,10 +205,10 @@ class Main:
                     databasestorage.sauvegarder_article()
                 elif choix == "8":
                     databasestorage.sauvegarder_article()
-                    print("Au revoir!")
+                    print("Au revoir! \U0001F590")
                     break
                 else:
-                    print("Choix invalide. Veuillez choisir une option valide.")
+                    print("\u26A0️ Choix invalide. Veuillez choisir une option valide. \u26A0️")
 
         ########## pour le test ########## 
         # liste_article = Article.articles

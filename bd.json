@@ -11,16 +11,6 @@
             "stock": 10
         },
         {
-            "title": "AAAAAAAA",
-            "auteur_name": "a",
-            "isbn": "1234567891234",
-            "first_publish_year": 6666,
-            "language": "Chiinois",
-            "code_barre": "CD123456789",
-            "prix": 1000,
-            "stock": 1
-        },
-        {
             "title": "test 3",
             "auteur_name": "test 3",
             "isbn": "test 3",
@@ -31,23 +21,13 @@
             "stock": 1
         },
         {
-            "title": "test 4",
+            "title": "test 3",
             "auteur_name": "test 4",
             "isbn": "test 4",
             "first_publish_year": "667",
             "language": "English",
             "code_barre": "test 4",
             "prix": "20",
-            "stock": 1
-        },
-        {
-            "title": "a",
-            "auteur_name": "a",
-            "isbn": "a",
-            "first_publish_year": "667",
-            "language": "a",
-            "code_barre": "a",
-            "prix": "1",
             "stock": 1
         }
     ]
