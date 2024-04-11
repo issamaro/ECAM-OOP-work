@@ -7,17 +7,17 @@ class Article:
         "toys": []
     }
 
-    def __init__(self, code_barre: str, prix: int, stock: int = 1) -> None:
-        self.__prix: int = prix
+    def __init__(self, code_barre: str, prix: float, stock: int = 1) -> None:
+        self.__prix: float = prix
         self.__stock: int = stock
         self.__code_barre: str = code_barre
 
     @property
-    def prix(self) -> int:
+    def prix(self) -> float:
         return self.__prix
 
     @prix.setter
-    def prix(self, value: int) -> None:
+    def prix(self, value: float) -> None:
         self.__prix = value
 
     @property

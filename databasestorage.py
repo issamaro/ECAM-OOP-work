@@ -1,5 +1,5 @@
 import json
-from main import Main
+from main import FILENAME
 from article import Article
 from bd import BD
 
@@ -20,12 +20,12 @@ def sauvegarder_article():
         data["bd"].append(bd_data)
 
     # Écrire les nouvelles données dans le fichier    
-    with open(Main.FILENAME, "w") as file:
+    with open(FILENAME, "w") as file:
         json.dump(data, file, indent=4)
 
 
 def charger_articles():
-    with open(Main.FILENAME, "r") as file:
+    with open(FILENAME, "r") as file:
         data = json.load(file)  # Charger les données depuis le fichier JSON
 
         # Si des données sont présentes

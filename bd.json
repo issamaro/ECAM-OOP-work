@@ -1,83 +1,43 @@
 {
     "bd": [
         {
+            "title": "Harry Potter and the Philosopher's Stone",
+            "auteur_name": "J. K. Rowling",
+            "isbn": "9780613206334",
+            "first_publish_year": 1997,
+            "language": "fr",
+            "code_barre": "435456657",
+            "prix": 54.78,
+            "stock": 1
+        },
+        {
             "title": "The Catcher in the Rye",
             "auteur_name": "J.D. Salinger",
-            "isbn": "9782253105677",
-            "first_publish_year": 1951,
-            "language": "English",
-            "code_barre": "PG123456789",
-            "prix": 20,
-            "stock": 10
-        },
-        {
-            "title": "test 3",
-            "auteur_name": "test 3",
-            "isbn": "test 3",
-            "first_publish_year": 667,
-            "language": "test 3",
-            "code_barre": "test 3",
-            "prix": "9999999999",
-            "stock": 1
-        },
-        {
-            "title": "test 3",
-            "auteur_name": "test 4",
-            "isbn": "test 4",
-            "first_publish_year": 667,
-            "language": "English",
-            "code_barre": "test 4",
-            "prix": 20,
-            "stock": 1
-        },
-        {
-            "title": "test 1",
-            "auteur_name": "test 1",
-            "isbn": "123",
-            "first_publish_year": 1234,
-            "language": "fra",
-            "code_barre": "1234",
-            "prix": 20,
-            "stock": 1
-        },
-        {
-            "title": "AAAAAAAAAAAAA",
-            "auteur_name": "test 2",
-            "isbn": "123",
-            "first_publish_year": 1234,
+            "isbn": "346347643234",
+            "first_publish_year": 1999,
             "language": "fr",
-            "code_barre": "1234",
-            "prix": 20,
+            "code_barre": "124345367575",
+            "prix": 435.78,
             "stock": 1
         },
         {
-            "title": "tes",
-            "auteur_name": "e",
-            "isbn": "e",
-            "first_publish_year": 667,
-            "language": "e",
-            "code_barre": "e",
-            "prix": 20,
+            "title": "The Catcher in the Rye",
+            "auteur_name": "J.D. Salinger",
+            "isbn": "3463476434",
+            "first_publish_year": 2034,
+            "language": "en",
+            "code_barre": "124345575",
+            "prix": 435.78,
             "stock": 1
         },
         {
-            "title": "a",
-            "auteur_name": "a",
-            "isbn": "a",
-            "first_publish_year": 20,
-            "language": "a",
-            "code_barre": "a",
-            "prix": 20.4,
-            "stock": 1
-        },
-        {
-            "title": "a",
-            "auteur_name": "a",
-            "isbn": "a",
-            "first_publish_year": 2,
-            "language": "a",
-            "code_barre": "a",
-            "prix": 20.667,
+            "title": "Harry Potter and the Philosopher's Stone",
+            "auteur_name": "J. K. Rowling",
+            "isbn": "9780613206334",
+            "first_publish_year": 1997,
+            "language": "fr",
+            "code_barre": "325314",
+            "prix": 45.78,
             "stock": 1
         }
     ]

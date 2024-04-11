@@ -4,7 +4,7 @@ from article import Article
 class BD(Article):
 
     def __init__(self, title: str, auteur_name: str, isbn: str, first_publish_year: int, language: str, code_barre: str,
-                 prix: int, stock: int = 1) -> None:
+                 prix: float, stock: int = 1) -> None:
         super().__init__(code_barre, prix, stock)  
         self.__title: str = title
         self.__auteur_name: str = auteur_name
@@ -52,7 +52,7 @@ class BD(Article):
     def language(self, value):
         self.__language = value
 
-    def prix(self):
+    def prix(self) -> float:
         return super().prix  # Appel du getter de prix de la classe parente
 
     def stock(self):
