@@ -13,18 +13,28 @@ class Article:
         self.__code_barre: str = code_barre
 
     @property
-    def getPrix(self) -> int:
+    def prix(self) -> int:
         return self.__prix
 
+    @prix.setter
+    def prix(self, value: int) -> None:
+        self.__prix = value
 
     @property
-    def getStock(self) -> int:
+    def stock(self) -> int:
         return self.__stock
 
+    @stock.setter
+    def stock(self, value: int) -> None:
+        self.__stock = value
 
     @property
-    def getCode_barre(self) -> str:
+    def code_barre(self) -> str:
         return self.__code_barre
+
+    @code_barre.setter
+    def code_barre(self, value: str) -> None:
+        self.__code_barre = value
 
     def __str__(self) -> str:
         str_liste = ""

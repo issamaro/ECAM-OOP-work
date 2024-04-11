@@ -76,16 +76,18 @@ class Main:
             language = input("Entrez la langue de la BD: ")
             code_barre = input("Entrez le code-barres de la BD: ")
 
-            # Vérifier si le prix est un nombre valide
+            # Vérifier si l'année de publication est un entier valide
             while True:
                 prix = input("Entrez le prix de la BD: ")
-                if not prix.isdigit():
-                    print("\u26A0️ Le prix doit être un nombre entier. \u26A0️")
-                else:
-                    break  # Sortir de la boucle si le prix est un nombre valide
+                try:
+                    prix = float(prix)  # Tente de convertir en flottant
+                    break  # Sortir de la boucle si la conversion réussit
+                except ValueError:
+                    print("\u26A0️ Le prix doit être un nombre entier ou décimal. \u26A0️")
+            
 
             # Créer la BD
-            nouvel_article = BD(title, auteur_name, isbn, first_publish_year, language, code_barre, prix)
+            nouvel_article = BD(title, auteur_name, isbn, int(first_publish_year), language, code_barre, float(prix))
             Article.articles["bd"].append(nouvel_article)
             print("\n \U0001F44D BD ajouté avec succès. \U0001F44D \n")
             databasestorage.sauvegarder_article()
@@ -126,9 +128,9 @@ class Main:
             for article in Article.articles["bd"]:
 
                 # Si on recherche par prix ou ISBN, on utilise une comparaison directe
-                if variable in ["prix", "isbn"]:
+                if variable in ["prix"]:
                     attribut = getattr(article, variable)()  # Appel de la méthode pour obtenir la valeur de l'attribut
-                    if attribut == int(valeur_recherche):
+                    if attribut == float(valeur_recherche):
                         bds_trouves.append(article)
                 else:
                     attribut = getattr(article, variable)

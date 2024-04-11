@@ -19,10 +19,6 @@ def sauvegarder_article():
         }
         data["bd"].append(bd_data)
 
-    # Nettoyer le fichier existant
-    with open(Main.FILENAME, "w") as file:
-        file.truncate(0)  # Truncate efface le contenu du fichier
-
     # Écrire les nouvelles données dans le fichier    
     with open(Main.FILENAME, "w") as file:
         json.dump(data, file, indent=4)

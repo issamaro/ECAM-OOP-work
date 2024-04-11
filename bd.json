@@ -14,7 +14,7 @@
             "title": "test 3",
             "auteur_name": "test 3",
             "isbn": "test 3",
-            "first_publish_year": "667",
+            "first_publish_year": 667,
             "language": "test 3",
             "code_barre": "test 3",
             "prix": "9999999999",
@@ -24,10 +24,60 @@
             "title": "test 3",
             "auteur_name": "test 4",
             "isbn": "test 4",
-            "first_publish_year": "667",
+            "first_publish_year": 667,
             "language": "English",
             "code_barre": "test 4",
-            "prix": "20",
+            "prix": 20,
+            "stock": 1
+        },
+        {
+            "title": "test 1",
+            "auteur_name": "test 1",
+            "isbn": "123",
+            "first_publish_year": 1234,
+            "language": "fra",
+            "code_barre": "1234",
+            "prix": 20,
+            "stock": 1
+        },
+        {
+            "title": "AAAAAAAAAAAAA",
+            "auteur_name": "test 2",
+            "isbn": "123",
+            "first_publish_year": 1234,
+            "language": "fr",
+            "code_barre": "1234",
+            "prix": 20,
+            "stock": 1
+        },
+        {
+            "title": "tes",
+            "auteur_name": "e",
+            "isbn": "e",
+            "first_publish_year": 667,
+            "language": "e",
+            "code_barre": "e",
+            "prix": 20,
+            "stock": 1
+        },
+        {
+            "title": "a",
+            "auteur_name": "a",
+            "isbn": "a",
+            "first_publish_year": 20,
+            "language": "a",
+            "code_barre": "a",
+            "prix": 20.4,
+            "stock": 1
+        },
+        {
+            "title": "a",
+            "auteur_name": "a",
+            "isbn": "a",
+            "first_publish_year": 2,
+            "language": "a",
+            "code_barre": "a",
+            "prix": 20.667,
             "stock": 1
         }
     ]

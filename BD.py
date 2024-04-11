@@ -13,36 +13,54 @@ class BD(Article):
         self.__language: str = language
 
     @property
-    def getTitle(self):
+    def title(self):
         return self.__title
 
+    @title.setter
+    def title(self, value):
+        self.__title = value
 
     @property
-    def getAuteur_name(self):
+    def auteur_name(self):
         return self.__auteur_name
 
+    @auteur_name.setter
+    def auteur_name(self, value):
+        self.__auteur_name = value
 
     @property
-    def getIsbn(self):
+    def isbn(self):
         return self.__isbn
 
+    @isbn.setter
+    def isbn(self, value):
+        self.__isbn = value
 
     @property
-    def getFirst_publish_year(self):
+    def first_publish_year(self):
         return self.__first_publish_year
 
+    @first_publish_year.setter
+    def first_publish_year(self, value):
+        self.__first_publish_year = value
+
     @property
-    def getLanguage(self):
+    def language(self):
         return self.__language
 
+    @language.setter
+    def language(self, value):
+        self.__language = value
+
     def prix(self):
-        return super().getPrix  # Appel du getter de prix de la classe parente
+        return super().prix  # Appel du getter de prix de la classe parente
 
     def stock(self):
-        return super().getStock  # Appel du getter de stock de la classe parente
+        return super().stock  # Appel du getter de stock de la classe parente
 
     def code_barre(self):
-        return super().getCode_barre  # Appel du getter de code_barre de la classe parente
+        return super().code_barre  # Appel du getter de code_barre de la classe parente
+
 
     def __str__(self) -> str:
-        return f"Title: {self.getTitle}\nAuteur: {self.getAuteur_name}\nISBN: {self.getIsbn}\nFirst Publish Year: {self.getFirst_publish_year}\nLanguage: {self.getLanguage}\nCode Barre: {self.code_barre()}\nPrix: {self.prix()} €\nStock: {self.stock()}"
+        return f"Title: {self.title}\nAuteur: {self.auteur_name}\nISBN: {self.isbn}\nFirst Publish Year: {self.first_publish_year}\nLanguage: {self.language}\nCode Barre: {self.code_barre()}\nPrix: {self.prix()} €\nStock: {self.stock()}"
