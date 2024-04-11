@@ -2,6 +2,7 @@
 from bd import BD
 from article import Article
 import databasestorage
+import research
 
 OPENLIBRARY_ENDPOINT = "https://openlibrary.org/search.json"
 
@@ -189,26 +190,27 @@ class Main:
             while True:
                 afficher_menu()
                 choix = input("Faites votre choix: ")
-                if choix == "1":
-                    ajouter_article()
-                elif choix == "2":
-                    afficher_liste_bd(Article.articles["bd"])
-                elif choix == "3":
-                    choisir_article()
-                elif choix == "4":
-                    rechercher_bd_par_titre()
-                elif choix == "5":
-                    modifier_article()
-                elif choix == "6":
-                    supprimer_article()
-                elif choix == "7":
-                    databasestorage.sauvegarder_article()
-                elif choix == "8":
-                    databasestorage.sauvegarder_article()
-                    print("Au revoir! \U0001F590")
-                    break
-                else:
-                    print("\u26A0️ Choix invalide. Veuillez choisir une option valide. \u26A0️")
+                match choix:
+                    case "1":
+                        ajouter_article()
+                    case "2":
+                        afficher_liste_bd(Article.articles["bd"])
+                    case "3":
+                        choisir_article()
+                    case "4":
+                        rechercher_bd_par_titre()
+                    case "5":
+                        modifier_article()
+                    case "6":
+                        supprimer_article()
+                    case "7":
+                        databasestorage.sauvegarder_article()
+                    case "8":
+                        databasestorage.sauvegarder_article()
+                        print("Au revoir!")
+                        break
+                    case _:
+                        print("Choix invalide. Veuillez choisir une option valide.")
 
         ########## pour le test ########## 
         # liste_article = Article.articles
